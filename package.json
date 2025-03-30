@@ -1,0 +1,56 @@
+{
+  "name": "httpquick",
+  "version": "1.0.0",
+  "description": "js http quick request",
+  "author": "dotcoo <dotcoo@163.com> (http://blog.dotcoo.com)",
+  "homepage": "https://github.com/dotcoo/httpquick#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dotcoo/httpquick.git"
+  },
+  "license": "ISC",
+  "keywords": [
+    "http",
+    "quick",
+    "request"
+  ],
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "main": "dist/ajax.js",
+  "exports": {
+    ".": {
+      "import": "dist/ajax.js",
+      "require": "dist/ajax.cjs"
+    },
+    "./ajax": {
+      "import": "dist/ajax.js",
+      "require": "dist/ajax.cjs"
+    },
+    "./fetch": {
+      "import": "dist/fetch.js",
+      "require": "dist/fetch.cjs"
+    },
+    "./uniapp": {
+      "import": "dist/uniapp.js",
+      "require": "dist/uniapp.cjs"
+    },
+    "./xcx": {
+      "import": "dist/xcx.js",
+      "require": "dist/xcx.cjs"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "pinia": "^3.0.1",
+    "vite": "^6.2.0",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  }
+}
