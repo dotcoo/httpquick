@@ -1,33 +1,33 @@
-import { HttpquickAjax } from '../../lib/HttpquickAjax';
+import { HttpQuickAjax } from '../../lib/HttpQuickAjax';
 
-export const createHttpquick = () => {
+export const createHttpQuick = () => {
   return {
     install: (app, options) => {
       // == http对象 ==
-      const httpquick = new HttpquickAjax({
+      const httpQuick = new HttpQuickAjax({
         baseUrl: '/api',
         timeout: 60000,
       });
 
       // == 依赖注入 ==
-      app.config.globalProperties.$http = httpquick;
+      app.config.globalProperties.$http = httpQuick;
       for (const key in options) {
-        httpquick[key] = options[key];
+        httpQuick[key] = options[key];
       }
 
       // == 中间件 ==
 
       // loading
-      httpquick.addMiddleware(async function(req, res, next = null) {
+      httpQuick.addMiddleware(async function(req, res, next = null) {
         console.log(req.url);
         await next(req, res);
       });
 
       // == 注册 ==
-      app.provide('httpquickajax', httpquick);
+      app.provide('httpQuickAjax', httpQuick);
 
       // == 全局函数 ==
-      httpquick.globalMethods();
+      httpQuick.globalMethods();
     },
   };
 };

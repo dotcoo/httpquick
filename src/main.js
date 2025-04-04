@@ -1,8 +1,8 @@
 import { createApp } from 'vue';
 // import { createPinia } from './pinia';
 // import { router } from './router';
-import { createHttpquick as createHttpquickAjax } from './utils/ajax';
-// import { createHttpquick as createHttpquickFetch } from './utils/fetch';
+import { createHttpQuick as createHttpQuickAjax } from './utils/ajax';
+// import { createHttpQuick as createHttpQuickFetch } from './utils/fetch';
 import App from './App.vue';
 
 // const pinia = createPinia();
@@ -10,6 +10,6 @@ import App from './App.vue';
 createApp(App)
   // .use(pinia)
   // .use(router)
-  .use(createHttpquickAjax(), { globalMethod: true })
-  // .use(createHttpquickFetch(), { globalMethod: true, store, router })
+  .use(createHttpQuickAjax(), { globalMethod: true })
+  // .use(createHttpQuickFetch(), { globalMethod: true, store, router })
   .mount('#app');

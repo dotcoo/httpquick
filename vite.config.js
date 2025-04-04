@@ -7,14 +7,16 @@ export default defineConfig({
   build: {
     lib: {
       entry: {
-        ajax: 'lib/HttpquickAjax.js',
-        fetch: 'lib/HttpquickFetch.js',
-        uniapp: 'lib/HttpquickUniapp.js',
-        xcx: 'lib/HttpquickXcx.js',
+        ajax: 'lib/HttpQuickAjax.js',
+        fetch: 'lib/HttpQuickFetch.js',
+        uniapp: 'lib/HttpQuickUniapp.js',
+        xcx: 'lib/HttpQuickXcx.js',
+        node: 'lib/HttpQuickNode.js',
+        fibjs: 'lib/HttpQuickFibjs.js',
       },
     },
     rollupOptions: {
-      external: ['vue', 'vue-router', 'pinia'],
+      external: ['vue', 'vue-router', 'pinia', 'http', 'util'],
     },
   },
 });
