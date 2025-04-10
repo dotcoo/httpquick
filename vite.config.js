@@ -2,10 +2,14 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => ({
   plugins: [vue()],
   build: {
-    lib: {
+    lib: mode == 'umd' ? {
+      entry: 'lib/HttpQuickAjax.js',
+      name: 'httpquick',
+      formats: ['umd'],
+    } : {
       entry: {
         ajax: 'lib/HttpQuickAjax.js',
         fetch: 'lib/HttpQuickFetch.js',
@@ -19,4 +23,4 @@ export default defineConfig({
       external: ['vue', 'vue-router', 'pinia', 'http', 'util'],
     },
   },
-});
+}));
