@@ -1,6 +1,6 @@
 {
   "name": "httpquick",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "js http quick request",
   "author": "dotcoo <dotcoo@163.com> (http://blog.dotcoo.com)",
   "homepage": "https://github.com/dotcoo/httpquick#readme",
@@ -19,8 +19,7 @@
   ],
   "type": "module",
   "main": "dist/httpquick.umd.cjs",
-  "import": "dist/ajax.js",
-  "require": "dist/node.cjs",
+  "module": "dist/ajax.js",
   "exports": {
     ".": {
       "import": "dist/ajax.js"
@@ -48,7 +47,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build":"vite build && vite build --mode=umd --emptyOutDir=false",
+    "build":"vite build && vite build --mode=cjs --emptyOutDir=false && vite build --mode=umd --emptyOutDir=false",
     "preview": "vite preview"
   },
   "devDependencies": {

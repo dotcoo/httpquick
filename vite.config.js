@@ -9,6 +9,12 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => ({
       entry: 'lib/HttpQuickAjax.js',
       name: 'httpquick',
       formats: ['umd'],
+    } : mode == 'cjs' ? {
+      entry: {
+        node: 'lib/HttpQuickNode.js',
+        fibjs: 'lib/HttpQuickFibjs.js',
+      },
+      formats: ['cjs'],
     } : {
       entry: {
         ajax: 'lib/HttpQuickAjax.js',
@@ -18,6 +24,7 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => ({
         node: 'lib/HttpQuickNode.js',
         fibjs: 'lib/HttpQuickFibjs.js',
       },
+      formats: ['es'],
     },
     rollupOptions: {
       external: ['vue', 'vue-router', 'pinia', 'http', 'util'],
