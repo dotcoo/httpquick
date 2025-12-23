@@ -1,10 +1,10 @@
-import { HttpQuickAjax } from '../../lib/HttpQuickAjax';
+import { HttpQuick } from '../../lib/HttpQuickAjax';
 
 export const createHttpQuick = () => {
   return {
     install: (app, options) => {
       // == http对象 ==
-      const httpQuick = new HttpQuickAjax({
+      const httpQuick = new HttpQuick({
         baseUrl: '/api',
         timeout: 60000,
       });
