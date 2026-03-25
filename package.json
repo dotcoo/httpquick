@@ -1,6 +1,6 @@
 {
   "name": "httpquick",
-  "version": "1.1.18",
+  "version": "1.2.0",
   "description": "js http quick request",
   "author": "dotcoo <dotcoo@163.com> (http://blog.dotcoo.com)",
   "homepage": "https://github.com/dotcoo/httpquick#readme",
@@ -15,32 +15,41 @@
     "request"
   ],
   "files": [
-    "dist"
+    "dist",
+    "types.d.ts"
   ],
   "type": "module",
+  "types": "./types.d.ts",
   "main": "./dist/httpquick.umd.cjs",
   "module": "./dist/ajax.js",
   "exports": {
     ".": {
+      "types": "./types.d.ts",
       "import": "./dist/ajax.js"
     },
     "./ajax": {
+      "types": "./types.d.ts",
       "import": "./dist/ajax.js"
     },
     "./fetch": {
+      "types": "./types.d.ts",
       "import": "./dist/fetch.js"
     },
     "./uniapp": {
+      "types": "./types.d.ts",
       "import": "./dist/uniapp.js"
     },
     "./xcx": {
+      "types": "./types.d.ts",
       "import": "./dist/xcx.js"
     },
     "./node": {
+      "types": "./types.d.ts",
       "import": "./dist/node.js",
       "require": "./dist/node.cjs"
     },
     "./fibjs": {
+      "types": "./types.d.ts",
       "import": "./dist/fibjs.js",
       "require": "./dist/fibjs.cjs"
     }
