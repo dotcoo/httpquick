@@ -1,6 +1,6 @@
 {
   "name": "httpquick",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "js http quick request",
   "author": "dotcoo <dotcoo@163.com> (http://blog.dotcoo.com)",
   "homepage": "https://github.com/dotcoo/httpquick#readme",
@@ -21,51 +21,59 @@
     "types.d.ts"
   ],
   "type": "module",
-  "types": "./types.d.ts",
-  "main": "./dist/httpquick.umd.cjs",
-  "module": "./dist/ajax.js",
+  "main": "./dist/httpquick-ajax.umd.js",
   "exports": {
     ".": {
-      "types": "./types.d.ts",
-      "import": "./dist/ajax.js"
+      "types": "./dist/httpquick.d.ts",
+      "import": "./dist/httpquick-ajax.js",
+      "require": "./dist/httpquick-ajax.cjs",
+      "browser": "./dist/httpquick-ajax.umd.js"
     },
     "./ajax": {
-      "types": "./types.d.ts",
-      "import": "./dist/ajax.js"
+      "types": "./dist/httpquick.d.ts",
+      "import": "./dist/httpquick-ajax.js",
+      "require": "./dist/httpquick-ajax.cjs",
+      "browser": "./dist/httpquick-ajax.umd.js"
     },
     "./fetch": {
-      "types": "./types.d.ts",
-      "import": "./dist/fetch.js"
+      "types": "./dist/httpquick.d.ts",
+      "import": "./dist/httpquick-fetch.js",
+      "browser": "./dist/httpquick-fetch.umd.js"
     },
     "./uniapp": {
-      "types": "./types.d.ts",
-      "import": "./dist/uniapp.js"
+      "types": "./dist/httpquick.d.ts",
+      "import": "./dist/httpquick-uniapp.js"
     },
     "./xcx": {
-      "types": "./types.d.ts",
-      "import": "./dist/xcx.js"
+      "types": "./dist/httpquick.d.ts",
+      "import": "./dist/httpquick-xcx.js"
     },
     "./node": {
-      "types": "./types.d.ts",
-      "import": "./dist/node.js",
-      "require": "./dist/node.cjs"
+      "types": "./dist/httpquick.d.ts",
+      "import": "./dist/httpquick-node.js",
+      "require": "./dist/httpquick-node.cjs"
     },
     "./fibjs": {
-      "types": "./types.d.ts",
-      "import": "./dist/fibjs.js",
-      "require": "./dist/fibjs.cjs"
+      "types": "./dist/httpquick.d.ts",
+      "import": "./dist/httpquick-fibjs.js",
+      "require": "./dist/httpquick-fibjs.cjs"
     }
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vite build --mode=cjs --emptyOutDir=false && vite build --mode=umd --emptyOutDir=false",
+    "build": "vite build --mode=es && vite build --mode=cjs --emptyOutDir=false && vite build --mode=umd --emptyOutDir=false",
     "preview": "vite preview"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.7",
+    "@vue/language-core": "^3.3.4",
     "pinia": "^3.0.4",
-    "vite": "^7.3.3",
-    "vue": "^3.5.34",
-    "vue-router": "^4.6.4"
+    "vite": "^8.0.16",
+    "vue": "^3.5.35",
+    "vue-router": "^5.1.0"
+  },
+  "dependencies": {
+    "typescript": "^6.0.3",
+    "vite-plugin-dts": "^5.0.2"
   }
 }

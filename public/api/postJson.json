@@ -1,0 +1,10 @@
+{
+  "errno": 0,
+  "errmsg": "ok",
+  "total": 3,
+  "list": [
+    { "username": "张三" },
+    { "username": "李四" },
+    { "username": "王五" }
+  ]
+}

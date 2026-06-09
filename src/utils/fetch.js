@@ -1,8 +1,8 @@
-import { HttpQuick } from '../../lib/httpquick-ajax';
+import { HttpQuick } from '../../lib/httpquick-fetch';
 
-export const createHttpQuick = () => {
+const createHttpQuick = () => {
   return {
-    install: (app, options) => {
+    install: (app, { store = null, router = null }) => {
       // == http对象 ==
       const httpQuick = new HttpQuick({
         baseUrl: '/api',
@@ -10,10 +10,8 @@ export const createHttpQuick = () => {
       });
 
       // == 依赖注入 ==
-      app.config.globalProperties.$http = httpQuick;
-      for (const key in options) {
-        httpQuick[key] = options[key];
-      }
+      httpQuick.store = store;
+      httpQuick.router = router;
 
       // == 中间件 ==
 
@@ -24,10 +22,7 @@ export const createHttpQuick = () => {
       });
 
       // == 注册 ==
-      app.provide('httpQuickAjax', httpQuick);
-
-      // == 全局函数 ==
-      httpQuick.globalMethods();
+      app.provide('httpQuickFetch', httpQuick);
     },
   };
 };
