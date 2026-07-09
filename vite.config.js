@@ -1,31 +1,34 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import dts from 'vite-plugin-dts';
+// import dts from 'vite-plugin-dts';
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 // https://vite.dev/config/
 export default defineConfig(({ mode = 'es' }) => ({
   plugins: [
     vue(),
-    dts(),
+    // dts(),
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'lib/httpquick.d.ts',
+          dest: '',
+          rename: { stripBase: 1/*, name: 'httpquick.d.ts'*/ }, // strips `bin/`
+        },
+      ],
+    }),
   ],
   build: {
     lib: {
-      entry: mode == 'es' ? {
-        ajax: 'lib/httpquick-ajax.js',
-        fetch: 'lib/httpquick-fetch.js',
-        uniapp: 'lib/httpquick-uniapp.js',
-        xcx: 'lib/httpquick-xcx.js',
-        node: 'lib/httpquick-node.js',
-        fibjs: 'lib/httpquick-fibjs.js',
-      } : mode == 'cjs' ? {
-        node: 'lib/httpquick-node.js',
-        fibjs: 'lib/httpquick-fibjs.js',
-      } : {
-        ajax: 'lib/httpquick-ajax.js',
+      entry: {
+        'httpquick-ajax': 'lib/httpquick-ajax.js',
+        'httpquick-fetch': 'lib/httpquick-fetch.js',
+        'httpquick-uniapp': 'lib/httpquick-uniapp.js',
+        'httpquick-xcx': 'lib/httpquick-xcx.js',
+        'httpquick-node': 'lib/httpquick-node.js',
+        'httpquick-fibjs': 'lib/httpquick-fibjs.js',
       },
-      name: 'httpquick',
-      formats: [mode],
-      fileName: (format, entryName) => ({ es: `httpquick-${entryName}.js`, cjs: `httpquick-${entryName}.cjs`, umd: `httpquick-${entryName}.umd.js` })[format],
+      formats: ['es'],
     },
     rollupOptions: {
       external: ['http', 'util'],

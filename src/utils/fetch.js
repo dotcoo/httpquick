@@ -5,7 +5,7 @@ const createHttpQuick = () => {
     install: (app, { store = null, router = null }) => {
       // == http对象 ==
       const httpQuick = new HttpQuick({
-        baseUrl: '/api',
+        baseUrl: '/src/api',
         timeout: 60000,
       });
 

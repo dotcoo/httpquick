@@ -1,6 +1,6 @@
 {
   "name": "httpquick",
-  "version": "1.2.3",
+  "version": "1.2.5",
   "description": "js http quick request",
   "author": "dotcoo <dotcoo@163.com> (http://blog.dotcoo.com)",
   "homepage": "https://github.com/dotcoo/httpquick#readme",
@@ -10,35 +10,27 @@
   },
   "license": "ISC",
   "keywords": [
-    "http",
-    "quick",
-    "request"
+    "httpquick"
   ],
   "files": [
     "LICENSE",
     "README.md",
-    "dist",
-    "types.d.ts"
+    "dist"
   ],
   "type": "module",
-  "main": "./dist/httpquick-ajax.umd.js",
+  "main": "./dist/httpquick-ajax.js",
   "exports": {
     ".": {
       "types": "./dist/httpquick.d.ts",
-      "import": "./dist/httpquick-ajax.js",
-      "require": "./dist/httpquick-ajax.cjs",
-      "browser": "./dist/httpquick-ajax.umd.js"
+      "import": "./dist/httpquick-ajax.js"
     },
     "./ajax": {
       "types": "./dist/httpquick.d.ts",
-      "import": "./dist/httpquick-ajax.js",
-      "require": "./dist/httpquick-ajax.cjs",
-      "browser": "./dist/httpquick-ajax.umd.js"
+      "import": "./dist/httpquick-ajax.js"
     },
     "./fetch": {
       "types": "./dist/httpquick.d.ts",
-      "import": "./dist/httpquick-fetch.js",
-      "browser": "./dist/httpquick-fetch.umd.js"
+      "import": "./dist/httpquick-fetch.js"
     },
     "./uniapp": {
       "types": "./dist/httpquick.d.ts",
@@ -50,28 +42,27 @@
     },
     "./node": {
       "types": "./dist/httpquick.d.ts",
-      "import": "./dist/httpquick-node.js",
-      "require": "./dist/httpquick-node.cjs"
+      "import": "./dist/httpquick-node.js"
     },
     "./fibjs": {
       "types": "./dist/httpquick.d.ts",
-      "import": "./dist/httpquick-fibjs.js",
-      "require": "./dist/httpquick-fibjs.cjs"
+      "import": "./dist/httpquick-fibjs.js"
     }
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build --mode=es && vite build --mode=cjs --emptyOutDir=false && vite build --mode=umd --emptyOutDir=false",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.7",
-    "@vue/language-core": "^3.3.4",
+    "@vue/language-core": "^3.3.7",
     "pinia": "^3.0.4",
     "typescript": "^6.0.3",
-    "vite": "^8.0.16",
-    "vite-plugin-dts": "^5.0.2",
-    "vue": "^3.5.35",
+    "vite": "^8.1.3",
+    "vite-plugin-dts": "^5.0.3",
+    "vite-plugin-static-copy": "^4.1.1",
+    "vue": "^3.5.39",
     "vue-router": "^5.1.0"
   }
 }
