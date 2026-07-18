@@ -1,6 +1,6 @@
 {
   "name": "httpquick",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "js http quick request",
   "author": "dotcoo <dotcoo@163.com> (http://blog.dotcoo.com)",
   "homepage": "https://github.com/dotcoo/httpquick#readme",
@@ -40,12 +40,8 @@
       "types": "./dist/httpquick.d.ts",
       "import": "./dist/httpquick-xcx.js"
     },
-    "./node": {
-      "types": "./dist/httpquick.d.ts",
-      "import": "./dist/httpquick-node.js"
-    },
     "./fibjs": {
-      "types": "./dist/httpquick.d.ts",
+      "types": "./dist/httpquick-fibjs.d.ts",
       "import": "./dist/httpquick-fibjs.js"
     }
   },

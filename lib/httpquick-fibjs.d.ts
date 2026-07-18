@@ -52,7 +52,7 @@ interface HttpQuickResponse {
  * HTTP 中间件 Next 接口
  */
 interface HttpQuickNext {
-  (req: HttpQuickRequest, res: HttpQuickResponse): Promise<void>;
+  (req: HttpQuickRequest, res: HttpQuickResponse): void;
 }
 
 /**
@@ -65,8 +65,8 @@ interface HttpQuickMiddleware {
    * @param res 响应选项
    * @param next 下一个中间件函数
    */
-  (req: HttpQuickRequest, res: HttpQuickResponse, next: HttpQuickNext): Promise<void>;
-  (req: HttpQuickRequest, res: HttpQuickResponse): Promise<void>;
+  (req: HttpQuickRequest, res: HttpQuickResponse, next: HttpQuickNext): void;
+  (req: HttpQuickRequest, res: HttpQuickResponse): void;
 }
 
 /**
@@ -147,56 +147,56 @@ declare class HttpQuick {
    * @param req 请求选项
    * @returns 响应结果
    */
-  get(req: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+  get(req: Partial<HttpQuickRequest>): HttpQuickResponse;
   
   /**
    * 发送 POST 请求
    * @param req 请求选项
    * @returns 响应结果
    */
-  post(req: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+  post(req: Partial<HttpQuickRequest>): HttpQuickResponse;
   
   /**
    * 发送 PUT 请求
    * @param req 请求选项
    * @returns 响应结果
    */
-  put(req: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+  put(req: Partial<HttpQuickRequest>): HttpQuickResponse;
   
   /**
    * 发送 DELETE 请求
    * @param req 请求选项
    * @returns 响应结果
    */
-  delete(req: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+  delete(req: Partial<HttpQuickRequest>): HttpQuickResponse;
   
   /**
    * 发送 PATCH 请求
    * @param req 请求选项
    * @returns 响应结果
    */
-  patch(req: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+  patch(req: Partial<HttpQuickRequest>): HttpQuickResponse;
   
   /**
    * 发送 HEAD 请求
    * @param req 请求选项
    * @returns 响应结果
    */
-  head(req: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+  head(req: Partial<HttpQuickRequest>): HttpQuickResponse;
 
   /**
    * 上传文件
    * @param req 请求选项
    * @returns 响应结果
    */
-  upload(req: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+  upload(req: Partial<HttpQuickRequest>): HttpQuickResponse;
   
   /**
    * 下载文件
    * @param req 请求选项
    * @returns 响应结果
    */
-  download(req: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+  download(req: Partial<HttpQuickRequest>): HttpQuickResponse;
 
   /** 超时错误处理中间件 */
   onTimeoutError: HttpQuickMiddleware;
@@ -209,14 +209,14 @@ declare class HttpQuick {
    * @param options 请求选项
    * @returns 响应结果
    */
-  request(options: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+  request(options: Partial<HttpQuickRequest>): HttpQuickResponse;
   
   /**
    * 发送请求的抽象方法，子类必须实现
    * @param req 请求选项
    * @param res 响应选项
    */
-  send(req: HttpQuickRequest, res: HttpQuickResponse): Promise<void>;
+  send(req: HttpQuickRequest, res: HttpQuickResponse): void;
 
   /**
    * 安装到应用
@@ -250,63 +250,63 @@ declare global {
    * @param req 请求选项
    * @returns 响应结果
    */
-  function httpGet(req: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+  function httpGet(req: Partial<HttpQuickRequest>): HttpQuickResponse;
   
   /**
    * 全局 POST 请求方法
    * @param req 请求选项
    * @returns 响应结果
    */
-  function httpPost(req: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+  function httpPost(req: Partial<HttpQuickRequest>): HttpQuickResponse;
   
   /**
    * 全局 PUT 请求方法
    * @param req 请求选项
    * @returns 响应结果
    */
-  function httpPut(req: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+  function httpPut(req: Partial<HttpQuickRequest>): HttpQuickResponse;
   
   /**
    * 全局 DELETE 请求方法
    * @param req 请求选项
    * @returns 响应结果
    */
-  function httpDelete(req: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+  function httpDelete(req: Partial<HttpQuickRequest>): HttpQuickResponse;
   
   /**
    * 全局 PATCH 请求方法
    * @param req 请求选项
    * @returns 响应结果
    */
-  function httpPatch(req: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+  function httpPatch(req: Partial<HttpQuickRequest>): HttpQuickResponse;
   
   /**
    * 全局 HEAD 请求方法
    * @param req 请求选项
    * @returns 响应结果
    */
-  function httpHead(req: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+  function httpHead(req: Partial<HttpQuickRequest>): HttpQuickResponse;
   
   /**
    * 全局上传方法
    * @param req 请求选项
    * @returns 响应结果
    */
-  function httpUpload(req: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+  function httpUpload(req: Partial<HttpQuickRequest>): HttpQuickResponse;
   
   /**
    * 全局下载方法
    * @param req 请求选项
    * @returns 响应结果
    */
-  function httpDownload(req: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+  function httpDownload(req: Partial<HttpQuickRequest>): HttpQuickResponse;
   
   /**
    * 全局请求方法
    * @param req 请求选项
    * @returns 响应结果
    */
-  function httpRequest(req: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+  function httpRequest(req: Partial<HttpQuickRequest>): HttpQuickResponse;
 
   /**
    * Math 对象扩展
@@ -317,63 +317,63 @@ declare global {
      * @param req 请求选项
      * @returns 响应结果
      */
-    get(req: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+    get(req: Partial<HttpQuickRequest>): HttpQuickResponse;
     
     /**
      * Math.post 请求方法
      * @param req 请求选项
      * @returns 响应结果
      */
-    post(req: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+    post(req: Partial<HttpQuickRequest>): HttpQuickResponse;
     
     /**
      * Math.put 请求方法
      * @param req 请求选项
      * @returns 响应结果
      */
-    put(req: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+    put(req: Partial<HttpQuickRequest>): HttpQuickResponse;
     
     /**
      * Math.delete 请求方法
      * @param req 请求选项
      * @returns 响应结果
      */
-    delete(req: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+    delete(req: Partial<HttpQuickRequest>): HttpQuickResponse;
     
     /**
      * Math.patch 请求方法
      * @param req 请求选项
      * @returns 响应结果
      */
-    patch(req: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+    patch(req: Partial<HttpQuickRequest>): HttpQuickResponse;
     
     /**
      * Math.head 请求方法
      * @param req 请求选项
      * @returns 响应结果
      */
-    head(req: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+    head(req: Partial<HttpQuickRequest>): HttpQuickResponse;
     
     /**
      * Math.upload 方法
      * @param req 请求选项
      * @returns 响应结果
      */
-    upload(req: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+    upload(req: Partial<HttpQuickRequest>): HttpQuickResponse;
     
     /**
      * Math.download 方法
      * @param req 请求选项
      * @returns 响应结果
      */
-    download(req: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+    download(req: Partial<HttpQuickRequest>): HttpQuickResponse;
     
     /**
      * Math.request 方法
      * @param req 请求选项
      * @returns 响应结果
      */
-    request(req: Partial<HttpQuickRequest>): Promise<HttpQuickResponse>;
+    request(req: Partial<HttpQuickRequest>): HttpQuickResponse;
   }
 }
 

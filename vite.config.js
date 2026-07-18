@@ -15,17 +15,23 @@ export default defineConfig(({ mode = 'es' }) => ({
           dest: '',
           rename: { stripBase: 1/*, name: 'httpquick.d.ts'*/ }, // strips `bin/`
         },
+        {
+          src: 'lib/httpquick-fibjs.d.ts',
+          dest: '',
+          rename: { stripBase: 1/*, name: 'httpquick-fibjs.d.ts'*/ }, // strips `bin/`
+        },
       ],
     }),
   ],
   build: {
     lib: {
       entry: {
+        'httpquick': 'lib/httpquick.js',
         'httpquick-ajax': 'lib/httpquick-ajax.js',
         'httpquick-fetch': 'lib/httpquick-fetch.js',
         'httpquick-uniapp': 'lib/httpquick-uniapp.js',
         'httpquick-xcx': 'lib/httpquick-xcx.js',
-        'httpquick-node': 'lib/httpquick-node.js',
+        // 'httpquick-node': 'lib/httpquick-node.js',
         'httpquick-fibjs': 'lib/httpquick-fibjs.js',
       },
       formats: ['es'],
