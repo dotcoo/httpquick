@@ -66,7 +66,7 @@ interface HttpQuickMiddleware {
    * @param next 下一个中间件函数
    */
   (req: HttpQuickRequest, res: HttpQuickResponse, next: HttpQuickNext): void;
-  (req: HttpQuickRequest, res: HttpQuickResponse): void;
+  // (req: HttpQuickRequest, res: HttpQuickResponse): void;
 }
 
 /**
@@ -244,7 +244,7 @@ type HttpQuickConstructor = typeof HttpQuick;
 /**
  * 全局方法扩展
  */
-declare global {
+export declare global {
   /**
    * 全局 GET 请求方法
    * @param req 请求选项
@@ -378,13 +378,19 @@ declare global {
 }
 
 /**
- * 导出类型定义
+ * 导出定义
  */
-export {
+export type {
   HttpQuickRequest,
   HttpQuickResponse,
   HttpQuickNext,
   HttpQuickMiddleware,
-  HttpQuick,
   HttpQuickConstructor,
+};
+
+/**
+ * 导出类型
+ */
+export {
+  HttpQuick,
 };
